@@ -30,7 +30,7 @@ int	main(int argc, char *argv[], char *envp[])
 			ft_error();
 		if (pid == 0)
 			ft_child(argv, envp, fd);
-		wait(NULL);
+		waitpid(-1, NULL, WNOHANG);
 		ft_parent(argv, envp, fd);
 	}
 	else
