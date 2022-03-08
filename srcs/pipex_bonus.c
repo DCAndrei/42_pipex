@@ -69,7 +69,7 @@ void	ft_any_child(char *cmd, char *envp[])
 		if (dup2(fd[0], STDIN_FILENO) == -1)
 			ft_error();
 		close(fd[0]);
-		waitpid(pid, NULL, 0);
+		waitpid(-1, NULL, WNOHANG);
 	}
 }
 
